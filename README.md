@@ -6,6 +6,19 @@ It contains one working demo extension and the shared packages that are useful f
 
 ## Quick start
 
+If `pnpm` is not installed yet, enable it through Corepack, which ships with recent Node.js versions:
+
+```bash
+corepack enable
+corepack prepare pnpm@10.26.2 --activate
+```
+
+If Corepack is unavailable, install the pinned package manager manually:
+
+```bash
+npm install -g pnpm@10.26.2
+```
+
 ```bash
 pnpm install
 pnpm dev --filter ct-demo-extension
