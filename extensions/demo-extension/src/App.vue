@@ -22,9 +22,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
-import DemoView from './views/DemoView.vue';
-import SettingsView from './views/SettingsView.vue';
+import { defineAsyncComponent, ref } from 'vue';
 import Tab from '@churchtools-extensions/prime-volt/Tab.vue';
 import TabList from '@churchtools-extensions/prime-volt/TabList.vue';
 import TabPanel from '@churchtools-extensions/prime-volt/TabPanel.vue';
@@ -33,4 +31,9 @@ import Tabs from '@churchtools-extensions/prime-volt/Tabs.vue';
 import Toast from '@churchtools-extensions/prime-volt/Toast.vue';
 
 const activeTab = ref('info');
+
+const DemoView = defineAsyncComponent(() => import('./views/DemoView.vue'));
+const SettingsView = defineAsyncComponent(
+  () => import('./views/SettingsView.vue'),
+);
 </script>
