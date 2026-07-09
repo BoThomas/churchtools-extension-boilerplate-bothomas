@@ -63,7 +63,7 @@ pnpm release
 1. Copy `extensions/demo-extension` to a new folder.
 2. Change the package name in the copied `package.json`.
 3. Set `VITE_KEY` in the copied `.env.development.local` and/or the fallback in `vite.config.ts`/`src/config.ts` to your ChurchTools extension key.
-4. Replace the demo UI in `src/App.vue` with your feature.
+4. Keep `src/App.vue` as the small tab shell and replace `src/views/DemoView.vue` / `src/views/SettingsView.vue` with your feature pages.
 5. Keep using the shared packages instead of re-creating setup code.
 
 ## Shared packages

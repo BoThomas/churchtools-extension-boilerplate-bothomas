@@ -20,6 +20,8 @@ import type {
 const moduleCache = new Map<string, CustomModule>();
 const categoryCache = new Map<number, CustomModuleDataCategory[]>();
 
+type ListResponse<T> = T[] | { data?: T[] };
+
 /**
  * retrieves the module configuration
  * @param extensionkey the extension key (shorty) to identify the module
@@ -32,8 +34,9 @@ export async function getModule(extensionkey: string): Promise<CustomModule> {
   }
 
   console.log('[Cache] Module cache miss for:', extensionkey);
-  const allModules: Array<CustomModule> =
-    await churchtoolsClient.get(`/custommodules`);
+  const response =
+    await churchtoolsClient.get<ListResponse<CustomModule>>(`/custommodules`);
+  const allModules = normalizeListResponse(response);
 
   const module = allModules.find(
     (item: CustomModule) => item.shorty === extensionkey,
@@ -127,9 +130,10 @@ export async function getCustomDataCategories<T extends object>(
   }
 
   console.log('[Cache] Category cache miss for module:', moduleId);
-  const categories: CustomModuleDataCategory[] = await churchtoolsClient.get(
-    `/custommodules/${moduleId}/customdatacategories`,
-  );
+  const response = await churchtoolsClient.get<
+    ListResponse<CustomModuleDataCategory>
+  >(`/custommodules/${moduleId}/customdatacategories`);
+  const categories = normalizeListResponse(response);
 
   categoryCache.set(moduleId, categories);
 
@@ -255,10 +259,12 @@ export async function getCustomDataValues<T extends object>(
 ): Promise<(T & Omit<CustomModuleDataValue, 'value'>)[]> {
   moduleId = await resolveModuleId(moduleId, extensionkey);
 
-  const values: (Omit<CustomModuleDataValue, 'value'> & { value: string })[] =
-    await churchtoolsClient.get(
-      `/custommodules/${moduleId}/customdatacategories/${dataCategoryId}/customdatavalues`,
-    );
+  const response = await churchtoolsClient.get<
+    ListResponse<Omit<CustomModuleDataValue, 'value'> & { value: string }>
+  >(
+    `/custommodules/${moduleId}/customdatacategories/${dataCategoryId}/customdatavalues`,
+  );
+  const values = normalizeListResponse(response);
 
   return values.map((val) => {
     const { value, ...rest } = val;
@@ -356,6 +362,11 @@ export async function deleteCustomDataValue(
  *  Other Utils
  * ────────────────────────────────────────────────
  */
+
+function normalizeListResponse<T>(response: ListResponse<T>): T[] {
+  if (Array.isArray(response)) return response;
+  return response.data ?? [];
+}
 
 function safeParseJSON<T>(json: string | null | undefined, fallback: T): T {
   if (!json) return fallback;
