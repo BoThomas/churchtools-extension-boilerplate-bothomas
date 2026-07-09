@@ -1,0 +1,30 @@
+{
+  "name": "churchtools-extension-boilderplate-bothomas",
+  "private": true,
+  "packageManager": "pnpm@10.26.2",
+  "scripts": {
+    "dev": "turbo dev",
+    "build": "turbo build",
+    "type-check": "turbo type-check",
+    "test": "turbo test",
+    "package": "turbo package",
+    "release": "ct-release",
+    "format": "prettier --write ."
+  },
+  "dependencies": {
+    "@churchtools-extensions/build-tools": "workspace:*"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^6.0.3",
+    "@vue/tsconfig": "^0.8.1",
+    "@vue/test-utils": "^2.4.6",
+    "@vitest/coverage-v8": "^4.0.16",
+    "@vitest/ui": "^4.0.16",
+    "jsdom": "^27.4.0",
+    "prettier": "^3.7.4",
+    "turbo": "^2.7.2",
+    "typescript": "^5.9.2",
+    "vite": "^7.3.0",
+    "vitest": "^4.0.16"
+  }
+}

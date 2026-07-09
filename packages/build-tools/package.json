@@ -1,0 +1,21 @@
+{
+  "name": "@churchtools-extensions/build-tools",
+  "version": "0.0.1",
+  "type": "module",
+  "scripts": {
+    "type-check": "echo 'No TypeScript files to check'"
+  },
+  "exports": {
+    "./package": "./package.js",
+    "./release": "./release.js",
+    "./version-info-plugin": "./version-info-plugin.js",
+    "./extension-info": "./extension-info.d.ts"
+  },
+  "bin": {
+    "ct-package": "./package.js",
+    "ct-release": "./release.js"
+  },
+  "dependencies": {
+    "archiver": "^7.0.1"
+  }
+}

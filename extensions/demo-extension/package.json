@@ -1,0 +1,39 @@
+{
+  "name": "ct-demo-extension",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Small demo ChurchTools extension for the boilerplate",
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/BoThomas/churchtools-extension-boilderplate-bothomas"
+  },
+  "author": {
+    "name": "Thomas Boch",
+    "email": "churchtools@als.bochmail.de"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "type-check": "tsc --noEmit",
+    "preview": "vite preview",
+    "package": "pnpm build && ct-package"
+  },
+  "dependencies": {
+    "@churchtools-extensions/build-tools": "workspace:*",
+    "@churchtools-extensions/ct-utils": "workspace:*",
+    "@churchtools-extensions/persistance": "workspace:*",
+    "@churchtools-extensions/prime-volt": "workspace:*",
+    "@churchtools-extensions/shared-styles": "workspace:*",
+    "@churchtools/churchtools-client": "^1.4.2",
+    "@primevue/icons": "^4.3.9",
+    "@tailwindcss/vite": "^4.1.13",
+    "pinia": "^3.0.3",
+    "primeicons": "^7.0.0",
+    "primevue": "^4.3.9",
+    "tailwind-merge": "^3.3.1",
+    "tailwindcss": "^4.1.13",
+    "tailwindcss-primeui": "^0.6.1",
+    "vue": "^3.5.22"
+  }
+}
