@@ -6,12 +6,18 @@ It contains one working demo extension and the shared packages that are useful f
 
 ## Quick start
 
+Step 1: Download the repository as ZIP, rename locally, run `git init` and make it your own.
+
+Following steps:
+
+````bash
+
 If `pnpm` is not installed yet, enable it through Corepack, which ships with recent Node.js versions:
 
 ```bash
 corepack enable
 corepack prepare pnpm@10.26.2 --activate
-```
+````
 
 If Corepack is unavailable, install the pinned package manager manually:
 
