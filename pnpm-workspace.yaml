@@ -1,3 +1,10 @@
 packages:
   - 'extensions/*'
   - 'packages/*'
+
+# Supply-chain hardening: pnpm uses minutes here, so 5 days = 7200 minutes.
+minimumReleaseAge: 7200
+
+# pnpm v10 already blocks dependency install scripts unless approved; fail instead of warning.
+strictDepBuilds: true
+dangerouslyAllowAllBuilds: false
