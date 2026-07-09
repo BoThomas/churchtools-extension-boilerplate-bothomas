@@ -6,7 +6,7 @@
   "type": "module",
   "repository": {
     "type": "git",
-    "url": "https://github.com/BoThomas/churchtools-extension-boilderplate-bothomas"
+    "url": "https://github.com/BoThomas/churchtools-extension-boilerplate-bothomas"
   },
   "author": {
     "name": "Thomas Boch",

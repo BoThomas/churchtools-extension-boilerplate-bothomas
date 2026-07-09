@@ -1,5 +1,5 @@
 {
-  "name": "churchtools-extension-boilderplate-bothomas",
+  "name": "churchtools-extension-boilerplate-bothomas",
   "private": true,
   "packageManager": "pnpm@10.26.2",
   "scripts": {

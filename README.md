@@ -24,7 +24,7 @@ If you need HTTPS locally, create certificates as described in [docs/local-https
 ## What is included
 
 ```text
-churchtools-extension-boilderplate-bothomas/
+churchtools-extension-boilerplate-bothomas/
 ├── extensions/
 │   └── demo-extension/       # Small working extension example
 ├── packages/
