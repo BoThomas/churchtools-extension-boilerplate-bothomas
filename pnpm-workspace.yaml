@@ -8,3 +8,11 @@ minimumReleaseAge: 7200
 # pnpm v10 already blocks dependency install scripts unless approved; fail instead of warning.
 strictDepBuilds: true
 dangerouslyAllowAllBuilds: false
+
+# Temporary security overrides until js-beautify/editorconfig/readdir-glob update their ranges.
+# https://github.com/advisories/GHSA-3g3m-2fjr-6pw4
+# https://github.com/advisories/GHSA-g3hv-75wg-m249
+overrides:
+  'js-beautify>glob': '^14.0.2'
+  'editorconfig>minimatch': '^11.0.1'
+  'readdir-glob>minimatch': '^11.0.1'
